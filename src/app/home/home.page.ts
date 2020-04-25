@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
+  todoList: Array<String> = []
+  todoInput: String = ""
+  constructor() { }
+  addItem() {
+    if (this.todoInput !== "") {
+      this.todoList.push(this.todoInput)
+      this.todoInput = ""
+    }
+  }
+  deleteItem(index) {
+    this.todoList.splice(index, 1)
+  }
 }
